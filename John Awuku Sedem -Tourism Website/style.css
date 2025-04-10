@@ -59,9 +59,14 @@ header {
 
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #006847;
 }
 
 .logo {
@@ -89,6 +94,7 @@ span {
 .nav-menu {
     display: flex;
     list-style: none;
+     margin-left: 350px;
 }
 
 .nav-item {
