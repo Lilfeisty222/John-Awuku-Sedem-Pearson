@@ -29,6 +29,7 @@ a:hover {
 }
 
 .container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -55,18 +56,24 @@ header {
     color: white;
     padding: 20px 0;
     position: relative;
+    width: 100%;
 }
 
 .navbar {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    position: absolute;
-    padding: 20px 0;
+    align-items: center;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--primary);
 }
 
 .logo {
-    font-size: 28px;
+    font-size: 1.75rem;
     font-weight: bold;
     color: white;
     display: flex;
@@ -80,6 +87,7 @@ header {
 span {
     color: red;
 }
+
 .yellow {
     color: yellow;
 }
@@ -87,13 +95,14 @@ span {
 .green {
     color: green;
 }
+
 .nav-menu {
     display: flex;
     list-style: none;
 }
 
 .nav-item {
-    margin-left: 30px;
+    margin-left: 1.5rem;
 }
 
 .nav-link {
@@ -106,6 +115,20 @@ span {
     color: var(--secondary);
 }
 
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
 .hero {
     min-height: 80vh;
     display: flex;
@@ -113,17 +136,17 @@ span {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 50px 0;
+    padding: 80px 20px 50px;
 }
 
 .hero h1 {
-    font-size: 60px;
+    font-size: 3.5rem;
     margin-bottom: 20px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
-    font-size: 22px;
+    font-size: 1.25rem;
     max-width: 700px;
     margin-bottom: 30px;
 }
@@ -144,16 +167,16 @@ span {
 }
 
 .section {
-    padding: 80px 0;
+    padding: 5rem 0;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 3rem;
 }
 
 .section-title h2 {
-    font-size: 36px;
+    font-size: 2.25rem;
     color: var(--primary);
     position: relative;
     padding-bottom: 15px;
@@ -171,7 +194,7 @@ span {
 }
 
 .section-title p {
-    font-size: 18px;
+    font-size: 1.125rem;
     color: #666;
     max-width: 700px;
     margin: 20px auto 0;
@@ -179,7 +202,7 @@ span {
 
 .destinations {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
 }
 
@@ -475,34 +498,90 @@ footer {
     font-size: 14px;
 }
 
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.75rem;
+    }
+    
+    .destinations, 
+    .culture-grid, 
+    .info-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
     .hero h1 {
-        font-size: 40px;
+        font-size: 2.25rem;
     }
     
     .hero p {
-        font-size: 18px;
+        font-size: 1rem;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--primary);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 20px 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-item {
+        margin: 15px 0;
     }
     
     .hero-btns {
         flex-direction: column;
     }
     
-    .navbar {
-        flex-direction: column;
-    }
-    
-    .nav-menu {
-        margin-top: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .nav-item {
-        margin: 5px 10px;
-    }
-    
     .newsletter-form {
         flex-direction: column;
+    }
+    
+    .section {
+        padding: 3rem 0;
+    }
+    
+    .destinations, 
+    .culture-grid, 
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+    
+    .section-title h2 {
+        font-size: 1.75rem;
+    }
+    
+    .testimonial-author {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .author-img {
+        margin: 0 auto 15px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
     }
 }
